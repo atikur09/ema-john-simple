@@ -1,10 +1,4 @@
-.cart{
-    position: sticky;
-    top: 0;
-    padding: 30px 20px;
-    margin: 0 auto;
-}
-.btn-shop_page {
+.btn-order-page{
     width: 170px;
     height: 48px;
     background: #FF3030;
@@ -14,10 +8,7 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
-.btn-icon{
-    padding-left: 10px;
-}
-.btn-shop_page:hover{
+.btn-order-page:hover{
     cursor: pointer;
     background-color: rgb(0, 213, 142);
     color: black;

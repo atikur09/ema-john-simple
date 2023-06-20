@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
-import { useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
+import { Link, useLoaderData } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faForward } from '@fortawesome/free-solid-svg-icons';
 
 const Shop = () => {
     const products = useLoaderData();
@@ -18,6 +20,13 @@ const Shop = () => {
         // 8 number line e gula sudu react use kore korte hbe r jodi router use kori tahole app js er 22 number line er moto kore korte hbe 
 
     }, []); */
+
+    const clearCart = () =>{
+        /* ekhane func declar korar karon holo cart compo te kono state/useState declar kora nei sekhane cart props hisebe pacche tai ekhane declar kore sekhan theke cart er moddo props hisebe pathate hobe niche cart-container er moddo*/
+        setCart([]); //kichu na thakle empty array jehetu remove korar por kichu thakbe na
+        deleteShoppingCart();
+    }
+
 
     // code for get item from local storage and display to ui
     useEffect(()=>{
@@ -69,7 +78,15 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart clearCart={clearCart} cart={cart}>
+                    {/* adding children props */}
+                    <Link to="/orders">
+                        <button className='btn-shop_page'>
+                            Review Order
+                            <FontAwesomeIcon className='btn-icon' icon={faForward}></FontAwesomeIcon>
+                        </button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
