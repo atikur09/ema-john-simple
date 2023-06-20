@@ -3,16 +3,21 @@ import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
+    const products = useLoaderData();
+    /* const [products, setProducts] = useState([]); */
     const [cart, setCart] = useState([]);
 
-    useEffect( () => {
+/*    useEffect( () => {
         fetch('products.json')
         .then(res => res.json())
         .then(data => setProducts(data))
-    }, []);
+
+        // 8 number line e gula sudu react use kore korte hbe r jodi router use kori tahole app js er 22 number line er moto kore korte hbe 
+
+    }, []); */
 
     // code for get item from local storage and display to ui
     useEffect(()=>{
@@ -30,7 +35,7 @@ const Shop = () => {
     }, [products]);
 
     /* https://web.programming-hero.com/update-1/video/update-1-49-6-advanced-display-local-storage-cart-to-the-ui 
-    line 21 if condition explaiend in this video from 6 min
+    line 27 if condition explaiend in this video from 6 min
     */
 
     
