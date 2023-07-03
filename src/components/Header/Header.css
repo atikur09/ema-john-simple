@@ -20,3 +20,6 @@
 .header a:hover{
     color: #FF9900;
 }
+.btn-logout{
+    margin-left: 10px;
+}

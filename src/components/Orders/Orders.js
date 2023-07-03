@@ -48,6 +48,9 @@ const Orders = () => {
                             <FontAwesomeIcon className='btn-icon' icon={faBackward}></FontAwesomeIcon>
                         </button>
                     </Link>
+                    <Link to='/shipping'>
+                        <button className='btn-order-page'>Proceed Shipping</button>
+                    </Link>
                 </Cart>
             </div>
         </div>
